@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#7a1721">
+  <title>Campus Cart — IIM Indore Marketplace</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="announcement">Exclusively for the IIM Indore community <span>•</span> Meet on campus. Trade safely.</div>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Campus Cart home">
+      <span class="brand-mark">C</span>
+      <span><strong>Campus Cart</strong><small>IIM INDORE</small></span>
+    </a>
+    <nav aria-label="Main navigation">
+      <button class="nav-link active" data-view="buy">Explore</button>
+      <button class="nav-link" data-view="sell">Sell an item</button>
+      <button class="icon-button cart-button" id="cartButton" aria-label="Open saved items">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h2l2.1 9.2a2 2 0 0 0 2 1.6h6.8a2 2 0 0 0 2-1.6L20 8H7.2M10 20h.01M17 20h.01"/></svg>
+        <span id="cartCount">0</span>
+      </button>
+      <button class="avatar" aria-label="Profile">HS</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="buyView" class="view active">
+      <div class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">CAMPUS-ONLY MARKETPLACE</span>
+          <h1>Good finds,<br><em>closer to home.</em></h1>
+          <p>Buy pre-loved essentials from people you already share a campus with.</p>
+          <div class="search-box">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="searchInput" type="search" placeholder="Search books, cycles, calculators..." aria-label="Search products">
+            <button id="searchButton">Search</button>
+          </div>
+          <div class="trust-row"><span>✓ IIM community</span><span>✓ Campus pickup</span><span>✓ Zero listing fees</span></div>
+        </div>
+        <div class="hero-art" aria-hidden="true">
+          <div class="sun"></div><div class="hill hill-one"></div><div class="hill hill-two"></div>
+          <div class="building"><div class="roof"></div><div class="facade"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="hero-card card-one"><span>📚</span><b>Course books</b><small>from ₹150</small></div>
+          <div class="hero-card card-two"><span>🚲</span><b>Cycles</b><small>ready to ride</small></div>
+        </div>
+      </div>
+
+      <section class="market-section">
+        <div class="section-heading">
+          <div><span class="eyebrow">DISCOVER</span><h2>Fresh on campus</h2></div>
+          <button class="text-button" id="clearFilters">View all <span>→</span></button>
+        </div>
+        <div class="category-list" id="categoryList"></div>
+        <div class="result-bar"><p id="resultCount"></p><select id="sortSelect" aria-label="Sort products"><option value="newest">Newest first</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>
+        <div class="product-grid" id="productGrid"></div>
+        <div class="empty-state" id="emptyState" hidden><span>⌕</span><h3>No matches yet</h3><p>Try another search or browse a different category.</p><button id="resetSearch">See all listings</button></div>
+      </section>
+    </section>
+
+    <section id="sellView" class="view sell-page">
+      <div class="sell-intro"><span class="eyebrow">SELL ON CAMPUS</span><h1>Give it a second life.</h1><p>List your item in under a minute. Interested students can connect with you directly.</p></div>
+      <div class="sell-layout">
+        <form id="listingForm" class="listing-form">
+          <div class="form-heading"><span>01</span><div><h2>Tell us about your item</h2><p>Clear details help your item sell faster.</p></div></div>
+          <label>Product title<input id="title" required maxlength="50" placeholder="e.g. Casio scientific calculator"></label>
+          <div class="form-row"><label>Price (₹)<input id="price" required min="0" type="number" placeholder="850"></label><label>Category<select id="category" required><option value="">Select category</option><option>Books</option><option>Electronics</option><option>Cycles</option><option>Room essentials</option><option>Fashion</option><option>Other</option></select></label></div>
+          <div class="form-row"><label>Condition<select id="condition" required><option value="">Select condition</option><option>Like new</option><option>Good</option><option>Fair</option></select></label><label>Pickup location<input id="location" required placeholder="e.g. Hostel 7"></label></div>
+          <label>Description<textarea id="description" required maxlength="240" placeholder="Mention the age, condition, and anything the buyer should know..."></textarea><small><span id="charCount">0</span>/240</small></label>
+          <label>Product photo<div class="upload-box" id="uploadBox"><input id="photo" type="file" accept="image/*"><div id="uploadPrompt"><span>＋</span><b>Add a photo</b><p>PNG or JPG, up to 5 MB</p></div><img id="photoPreview" alt="Product preview" hidden></div></label>
+          <label class="check-label"><input id="agreement" type="checkbox" required><span>I confirm this item is mine to sell and the listing is accurate.</span></label>
+          <button class="primary-button" type="submit">Publish listing <span>→</span></button>
+        </form>
+        <aside class="sell-aside"><div class="tip-card"><span>✦</span><h3>A great listing stands out</h3><ul><li>Use a bright, clear photo</li><li>Be honest about the condition</li><li>Choose a fair campus price</li><li>Meet in a public campus spot</li></ul></div><blockquote>“The calculator I wasn't using found a new home in the next hostel.”<footer>— Aditi, IPM '27</footer></blockquote></aside>
+      </div>
+    </section>
+  </main>
+
+  <div class="drawer-backdrop" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Saved items">
+    <div class="drawer-head"><div><span class="eyebrow">YOUR SHORTLIST</span><h2>Saved items</h2></div><button class="close-button" id="closeCart" aria-label="Close">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div id="cartEmpty" class="cart-empty"><span>♡</span><p>Items you save will appear here.</p></div>
+    <div class="drawer-footer"><p><span>Estimated total</span><strong id="cartTotal">₹0</strong></p><button id="contactSellers" class="primary-button">Contact sellers</button></div>
+  </aside>
+  <div class="toast" id="toast" role="status"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>
